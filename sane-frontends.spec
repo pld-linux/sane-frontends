@@ -1,14 +1,14 @@
 #
 # Conditional build:
 # _without_gimp  - don't build GIMP plugin
-# _with_gtk12    - use GTK 1.2.x for GUI (for eg. for GIMP 1.2)
+# _with_gtk1     - use GTK 1.2.x for GUI (for eg. for GIMP 1.2)
 #
 Summary:	SANE - Easy local and networked scanner access
 Summary(pl):	SANE - Prosta obs³uga skanerów lokalnych i sieciowych
 Summary(pt_BR):	Front-ends para o SANE
 Name:		sane-frontends
 Version:	1.0.11
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.mostang.com/pub/sane/%{name}-%{version}/%{name}-%{version}.tar.gz
@@ -16,7 +16,7 @@ Source0:	ftp://ftp.mostang.com/pub/sane/%{name}-%{version}/%{name}-%{version}.ta
 Patch0:		%{name}-gimp1.3.15.patch
 URL:		http://www.mostang.com/sane/
 BuildRequires:	autoconf
-%if 0%{?_with_gtk12:1}
+%if 0%{?_with_gtk1:1}
 BuildRequires:	gtk+-devel
 %{!?_without_gimp:BuildRequires:	gimp-devel < 1.3.0}
 %{!?_without_gimp:BuildRequires:	gimp-devel >= 1.2.0}
@@ -30,7 +30,7 @@ Obsoletes:	xscanimage
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %if 0%{!?_without_gimp:1}
-%define		gimpplugindir	%(gimp-config --gimpplugindir)
+%define		gimpplugindir	%(gimptool --gimpplugindir)
 %endif
 
 %description
@@ -68,8 +68,8 @@ verifique o manpage do saned(1).
 %{__autoconf}
 %configure \
 	%{?_without_gimp:--disable-gimp} \
-	%{!?_without_gimp:%{!?_with_gtk12:--enable-gimp13}} \
-	%{?_with_gtk12:--disable-gtk2}
+	%{!?_without_gimp:%{!?_with_gtk1:--enable-gimp13}} \
+	%{?_with_gtk1:--disable-gtk2}
 %{__make}
 
 %install
