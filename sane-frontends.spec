@@ -9,7 +9,6 @@ License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.mostang.com/pub/sane/sane-%{version}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
-Patch1:		%{name}-fpe.patch
 URL:		http://www.mostang.com/sane/
 BuildRequires:	sane-backends-devel
 BuildRequires:	gimp-devel
@@ -50,8 +49,6 @@ verifique o manpage do saned(1).
 %prep
 %setup -q
 %patch0 -p1
-# Merged
-#%patch1 -p1
 
 %build
 autoconf
