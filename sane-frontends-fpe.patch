@@ -1,7 +1,7 @@
 Index: external/sane/sane-frontends/src/preview.c
 diff -u external/sane/sane-frontends/src/preview.c:1.3 external/sane/sane-frontends/src/preview.c:1.4
---- external/sane/sane-frontends/src/preview.c:1.3	Fri Aug  3 13:57:49 2001
-+++ external/sane/sane-frontends/src/preview.c	Thu Nov 29 10:15:33 2001
+--- sane-frontends/src/preview.c:1.3	Fri Aug  3 13:57:49 2001
++++ sane-frontends/src/preview.c	Thu Nov 29 10:15:33 2001
 @@ -871,6 +871,8 @@
  
    p->image_width = width;
