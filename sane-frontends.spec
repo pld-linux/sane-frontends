@@ -1,16 +1,17 @@
 %define	gimp_ver	1.2
+%define pre	pre2
 Summary:	SANE - Easy local and networked scanner access
 Summary(pl):	SANE - Prosta obs³uga skanerów lokalnych i sieciowych
 Summary(pt_BR):	Front-ends para o SANE
 Name:		sane-frontends
-Version:	1.0.9
-Release:	0.1
+Version:	1.0.10
+Release:	0.%{pre}.1
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	ftp://ftp.mostang.com/pub/sane/sane-%{version}/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.mostang.com/pub/sane/%{name}-%{version}-%{pre}.tar.gz
 URL:		http://www.mostang.com/sane/
 BuildRequires:	sane-backends-devel
-BuildRequires:	gimp-devel
+%{!?_without_gimp:BuildRequires:	gimp-devel}
 BuildRequires:	autoconf
 Obsoletes:	xscanimage
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -44,11 +45,12 @@ rede por default; se você quiser habilitar essa característica,
 verifique o manpage do saned(1).
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}-%{pre}
 
 %build
 %{__autoconf}
-%configure
+%configure \
+	%{?_without_gimp:--disable-gimp}
 %{__make}
 
 %install
