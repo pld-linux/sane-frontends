@@ -1,7 +1,7 @@
 #
 # Conditional build:
-# _without_gimp  - don't build GIMP plugin
-# _with_gtk1     - use GTK 1.2.x for GUI (for eg. for GIMP 1.2)
+%bcond_without	gimp	# don't build GIMP plugin
+%bcond_with	gtk1	# use GTK 1.2.x for GUI (for eg. for GIMP 1.2)
 #
 Summary:	SANE - easy local and networked scanner access
 Summary(es):	SANE - acceso a scanners en red y locales
@@ -18,20 +18,20 @@ Source0:	ftp://ftp.mostang.com/pub/sane/%{name}-%{version}/%{name}-%{version}.ta
 Patch0:		%{name}-gimp1.3.15.patch
 URL:		http://www.sane-project.org/
 BuildRequires:	autoconf
-%if 0%{?_with_gtk1:1}
+%if %{with gtk1}
 BuildRequires:	gtk+-devel
-%{!?_without_gimp:BuildRequires:	gimp-devel < 1.3.0}
-%{!?_without_gimp:BuildRequires:	gimp-devel >= 1.2.0}
+%{?with_gimp:BuildRequires:	gimp-devel < 1.3.0}
+%{?with_gimp:BuildRequires:	gimp-devel >= 1.2.0}
 %else
 BuildRequires:	gtk+2-devel
-%{!?_without_gimp:BuildRequires:	gimp-devel >= 1.3.15}
+%{?with_gimp:BuildRequires:	gimp-devel >= 1.3.15}
 %endif
 BuildRequires:	sane-backends-devel >= 1.0.11
 %requires_eq	sane-backends
 Obsoletes:	xscanimage
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%if 0%{!?_without_gimp:1}
+%if %{with gimp}
 %define		gimpplugindir	%(gimptool --gimpplugindir)
 %endif
 
@@ -70,9 +70,9 @@ verifique o manpage do saned(1).
 cp -f /usr/share/automake/config.sub .
 %{__autoconf}
 %configure \
-	%{?_without_gimp:--disable-gimp} \
-	%{!?_without_gimp:%{!?_with_gtk1:--enable-gimp13}} \
-	%{?_with_gtk1:--disable-gtk2}
+	%{!?with_gimp:--disable-gimp} \
+	%{?with_gimp:%{!?with_gtk1:--enable-gimp13}} \
+	%{?with_gtk1:--disable-gtk2}
 %{__make}
 
 %install
@@ -80,7 +80,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-%if 0%{!?_without_gimp:1}
+%if %{with gimp}
 install -d $RPM_BUILD_ROOT%{gimpplugindir}/plug-ins
 ln -sf %{_bindir}/xscanimage $RPM_BUILD_ROOT%{gimpplugindir}/plug-ins
 %endif
@@ -92,6 +92,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS NEWS PROBLEMS TODO Changelog
 %attr(755,root,root) %{_bindir}/*
-%{!?_without_gimp:%attr(755,root,root) %{gimpplugindir}/plug-ins/*}
+%{?with_gimp:%attr(755,root,root) %{gimpplugindir}/plug-ins/*}
 %{_mandir}/man1/*
 %{_datadir}/sane
