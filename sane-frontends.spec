@@ -1,16 +1,18 @@
 %define	gimp_ver	1.2
 Summary:	SANE - Easy local and networked scanner access
 Summary(pl):	SANE - Prosta obs³uga skanerów lokalnych i sieciowych
+Summary(pt_BR):	Front-ends para o SANE
 Name:		sane-frontends
 Version:	1.0.6
-Release:	1
+Release:	3
+License:	GPL
 Group:		X11/Applications/Graphics
 Group(de):	X11/Applikationen/Grafik
 Group(pl):	X11/Aplikacje/Grafika
 Group(pt):	X11/Aplicações/Gráficos
-License:	GPL
 Source0:	ftp://ftp.mostang.com/pub/sane/sane-%{version}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
+Patch1:		%{name}-fpe.patch
 URL:		http://www.mostang.com/sane/
 BuildRequires:	sane-backends-devel
 BuildRequires:	gimp-devel
@@ -27,6 +29,9 @@ digital still and video cameras.
 
 This packages contains frontends for SANE: xscanimage and xcam.
 
+%description -l es
+SANE - acceso a scanners en red y locales.
+
 %description -l pl
 SANE (Scanner Access Now Easy) jest rozs±dnym i prostym insterfejsem
 do skanerów, zarówno lokalnych jak i sieciowych, oraz innych urz±dzeñ
@@ -34,9 +39,20 @@ do pozyskiwania obrazów, jak cyfrowe aparaty i kamery.
 
 Ten pakiet zawiera frontendy dla SANE: xscanimage i xcam.
 
+%description -l pt_BR
+SANE (Scanner Access Now Easy) é uma interface para scanners e outros
+dispositivos locais e remotos de aquisição de imagens tais como
+câmeras digitais. SANE atualmente suporta um grande numero de
+scanners, incluindo modelos da Agfa SnapScan, Apple, Artec, Canon,
+CoolScan, Epson, HP, Microtek, Mustek, Nikon, Siemens, Tamarack, UMAX,
+Connectix QuickCams e outros. Este pacote não habilita scanning por
+rede por default; se você quiser habilitar essa característica,
+verifique o manpage do saned(1).
+
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 autoconf
