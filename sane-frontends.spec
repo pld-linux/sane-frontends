@@ -3,12 +3,11 @@ Summary:	SANE - Easy local and networked scanner access
 Summary(pl):	SANE - Prosta obs³uga skanerów lokalnych i sieciowych
 Summary(pt_BR):	Front-ends para o SANE
 Name:		sane-frontends
-Version:	1.0.7
+Version:	1.0.8
 Release:	2
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.mostang.com/pub/sane/sane-%{version}/%{name}-%{version}.tar.gz
-Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.mostang.com/sane/
 BuildRequires:	sane-backends-devel
 BuildRequires:	gimp-devel
@@ -48,7 +47,6 @@ verifique o manpage do saned(1).
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__autoconf}
@@ -63,14 +61,12 @@ install -d $RPM_BUILD_ROOT%{_libdir}/gimp/%{gimp_ver}/plug-ins
 
 ln -sf %{_bindir}/xscanimage $RPM_BUILD_ROOT%{_libdir}/gimp/%{gimp_ver}/plug-ins
 
-gzip -9nf AUTHORS NEWS PROBLEMS TODO Changelog
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc AUTHORS NEWS PROBLEMS TODO Changelog
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/gimp/%{gimp_ver}/plug-ins/*
 %{_mandir}/man1/*
