@@ -2,7 +2,7 @@
 Summary:	SANE --- Easy local and networked scanner access
 Summary(pl):	SANE --- Prosta obs³uga skanerów lokalnych i sieciowych
 Name:		sane-frontends
-Version:	1.0.4
+Version:	1.0.5
 Release:	1
 Group:		Libraries
 Group(de):	Libraries
@@ -10,12 +10,11 @@ Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
 License:	GPL
-Source0:	ftp://ftp.mostang.com/pub/sane/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.mostang.com/pub/sane/sane-%{version}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.mostang.com/sane/
 BuildRequires:	sane-backends-devel
 BuildRequires:	gimp-devel
-BuildRequires:	gtk+-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -24,32 +23,16 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 SANE (Scanner Access Now Easy) is a sane and simple interface to both
 local and networked scanners and other image acquisition devices like
-digital still and video cameras. SANE currently includes modules for
-accessing:
+digital still and video cameras.
 
-Scanners: Agfa SnapScan, Apple, Artec, Canon, CoolScan, Epson, HP,
-          Microtek, Mustek, Nikon, Siemens, Tamarack, UMAX
-
-Others:   Connectix, QuickCams
-
-and other SANE devices via network.
-
-This packages contains various frontends for SANE.
+This packages contains frontends for SANE: xscanimage and xcam.
 
 %description -l pl
 SANE (Scanner Access Now Easy) jest rozs±dnym i prostym insterfejsem
 do skanerów, zarówno lokalnych jak i sieciowych, oraz innych urz±dzeñ
-do pozyskiwania obrazów, jak cyfrowe aparaty i kamery. SANE aktualnie
-zawiera modu³y do obs³ugi:
+do pozyskiwania obrazów, jak cyfrowe aparaty i kamery.
 
-Skanery: Agfa SnapScan, Apple, Artec, Canon, CoolScan, Epson, HP,
-         Microtek, Mustek, Nikon, Siemens, Tamarack, UMAX
-
-Inne:    Connectix, QuickCams
-
-oraz inne urz±dzenia dostêpne przez sieæ.
-
-Ten pakiet zawiera ró¿ne frontendy dla SANE.
+Ten pakiet zawiera frontendy dla SANE: xscanimage i xcam.
 
 %prep
 %setup -q
