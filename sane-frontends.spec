@@ -3,8 +3,10 @@
 # _without_gimp  - don't build GIMP plugin
 # _with_gtk1     - use GTK 1.2.x for GUI (for eg. for GIMP 1.2)
 #
-Summary:	SANE - Easy local and networked scanner access
-Summary(pl):	SANE - Prosta obs³uga skanerów lokalnych i sieciowych
+Summary:	SANE - easy local and networked scanner access
+Summary(es):	SANE - acceso a scanners en red y locales
+Summary(ko):	½ºÄ³³Ê¸¦ ´Ù·ç´Â ¼ÒÇÁÆ®¿þ¾î
+Summary(pl):	SANE - prosta obs³uga skanerów lokalnych i sieciowych
 Summary(pt_BR):	Front-ends para o SANE
 Name:		sane-frontends
 Version:	1.0.11
