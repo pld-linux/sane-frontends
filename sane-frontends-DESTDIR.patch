@@ -1,0 +1,74 @@
+diff -Naur sane-frontends-1.0.4/Makefile.in sane-frontends-1.0.4-p/Makefile.in
+--- sane-frontends-1.0.4/Makefile.in	Fri Nov 10 07:18:57 2000
++++ sane-frontends-1.0.4-p/Makefile.in	Fri Feb  9 15:59:10 2001
+@@ -1,4 +1,5 @@
+ SHELL = /bin/sh
++DESTDIR =
+ 
+ VPATH = @srcdir@
+ srcdir = @srcdir@
+diff -Naur sane-frontends-1.0.4/doc/Makefile.in sane-frontends-1.0.4-p/doc/Makefile.in
+--- sane-frontends-1.0.4/doc/Makefile.in	Sat Nov 11 21:05:44 2000
++++ sane-frontends-1.0.4-p/doc/Makefile.in	Fri Feb  9 15:58:45 2001
+@@ -1,4 +1,5 @@
+ SHELL = /bin/sh
++DESTDIR =
+ 
+ VPATH = @srcdir@
+ srcdir = @srcdir@
+@@ -50,10 +51,10 @@
+ 	    -e 's|@SBINDIR@|$(sbindir)|g' $^ >$@
+ 
+ install: $(MANPAGES)
+-	$(MKDIR) $(mandir)/man1
++	$(MKDIR) $(DESTDIR)$(mandir)/man1
+ 	@for page in $(SECT1); do \
+ 	  echo installing $${page} in $(mandir)/man1/$${page}...; \
+-	  $(INSTALL_DATA) $${page} $(mandir)/man1/$${page} || exit 1; \
++	  $(INSTALL_DATA) $${page} $(DESTDIR)$(mandir)/man1/$${page} || exit 1; \
+ 	done
+ 
+ install-docs: ps
+diff -Naur sane-frontends-1.0.4/lib/Makefile.in sane-frontends-1.0.4-p/lib/Makefile.in
+--- sane-frontends-1.0.4/lib/Makefile.in	Fri Nov 10 07:33:12 2000
++++ sane-frontends-1.0.4-p/lib/Makefile.in	Fri Feb  9 15:59:01 2001
+@@ -1,4 +1,5 @@
+ SHELL = /bin/sh
++DESTDIR =
+ 
+ VPATH = @srcdir@
+ srcdir = @srcdir@
+diff -Naur sane-frontends-1.0.4/sanei/Makefile.in sane-frontends-1.0.4-p/sanei/Makefile.in
+--- sane-frontends-1.0.4/sanei/Makefile.in	Wed Nov 15 23:35:27 2000
++++ sane-frontends-1.0.4-p/sanei/Makefile.in	Fri Feb  9 15:59:14 2001
+@@ -1,4 +1,5 @@
+ SHELL = /bin/sh
++DESTDIR =
+ 
+ VPATH = @srcdir@
+ srcdir = @srcdir@
+diff -Naur sane-frontends-1.0.4/src/Makefile.in sane-frontends-1.0.4-p/src/Makefile.in
+--- sane-frontends-1.0.4/src/Makefile.in	Thu Nov 30 20:58:38 2000
++++ sane-frontends-1.0.4-p/src/Makefile.in	Fri Feb  9 16:01:12 2001
+@@ -1,4 +1,5 @@
+ SHELL = /bin/sh
++DESTDIR =
+ 
+ VPATH = @srcdir@
+ srcdir = @srcdir@
+@@ -59,12 +60,12 @@
+ all: $(PROGRAMS)
+ 
+ install: $(PROGRAMS)
+-	$(MKDIR) $(bindir) $(datadir)
++	$(MKDIR) $(DESTDIR)$(bindir) $(DESTDIR)$(datadir)
+ 	@for program in $(BINPROGS); do \
+ 	  $(INSTALL_PROGRAM) $${program} \
+-	    $(bindir)/$${program}; \
++	    $(DESTDIR)$(bindir)/$${program}; \
+ 	done
+-	$(INSTALL_DATA) $(srcdir)/sane-style.rc $(datadir)/sane-style.rc
++	$(INSTALL_DATA) $(srcdir)/sane-style.rc $(DESTDIR)$(datadir)/sane-style.rc
+ 
+ xscanimage: $(XSCAN_OBJS) $(LIBSANEI) $(LIBLIB)
+ 	$(LINK) $(XSCAN_OBJS) $(LIBSANEI) \
