@@ -25,8 +25,8 @@ BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	gtk+2-devel >= 2.0.0
 %{?with_gimp:BuildRequires:	gimp-devel >= 1:1.3.23}
 %endif
-BuildRequires:	sane-backends-devel >= 1.0.11
-%requires_eq	sane-backends
+BuildRequires:	sane-backends-devel >= 1.0.14
+Requires:	sane-backends >= 1.0.14
 Obsoletes:	xscanimage
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
