@@ -51,7 +51,7 @@ verifique o manpage do saned(1).
 %patch0 -p1
 
 %build
-autoconf
+%{__autoconf}
 %configure
 %{__make}
 
