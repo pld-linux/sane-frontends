@@ -9,22 +9,21 @@ Summary(ko):	½ºÄ³³Ê¸¦ ´Ù·ç´Â ¼ÒÇÁÆ®¿þ¾î
 Summary(pl):	SANE - prosta obs³uga skanerów lokalnych i sieciowych
 Summary(pt_BR):	Front-ends para o SANE
 Name:		sane-frontends
-Version:	1.0.11
-Release:	8
+Version:	1.0.12
+Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.mostang.com/pub/sane/%{name}-%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	59b143e12c926726db16983d288aa1a1
-Patch0:		%{name}-gimp1.3.15.patch
+# Source0-md5:	6a6166428491b268f5ebe03f16d1bc1f
 URL:		http://www.sane-project.org/
 BuildRequires:	autoconf
 %if %{with gtk1}
-BuildRequires:	gtk+-devel
+BuildRequires:	gtk+-devel >= 1.2.0
 %{?with_gimp:BuildRequires:	gimp-devel < 1.3.0}
 %{?with_gimp:BuildRequires:	gimp-devel >= 1:1.2.0}
 %else
-BuildRequires:	gtk+2-devel
-%{?with_gimp:BuildRequires:	gimp-devel >= 1:1.3.15}
+BuildRequires:	gtk+2-devel >= 2.0.0
+%{?with_gimp:BuildRequires:	gimp-devel >= 1:1.3.23}
 %endif
 BuildRequires:	sane-backends-devel >= 1.0.11
 %requires_eq	sane-backends
@@ -64,14 +63,13 @@ verifique o manpage do saned(1).
 
 %prep
 %setup -q
-%patch -p1
 
 %build
 cp -f /usr/share/automake/config.sub .
 %{__autoconf}
 %configure \
 	%{!?with_gimp:--disable-gimp} \
-	%{?with_gimp:%{!?with_gtk1:--enable-gimp13 GIMPTOOL=%{_bindir}/gimptool}} \
+	%{?with_gimp:%{?with_gtk1:--enable-gimp12}} \
 	%{?with_gtk1:--disable-gtk2}
 %{__make}
 
@@ -91,7 +89,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS PROBLEMS TODO Changelog
+%doc AUTHORS Changelog NEWS PROBLEMS README
 %attr(755,root,root) %{_bindir}/*
 %{?with_gimp:%attr(755,root,root) %{gimpplugindir}/plug-ins/*}
 %{_mandir}/man1/*
