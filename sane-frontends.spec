@@ -1,14 +1,13 @@
 %define	gimp_ver	1.2
-%define pre	pre2
 Summary:	SANE - Easy local and networked scanner access
 Summary(pl):	SANE - Prosta obs³uga skanerów lokalnych i sieciowych
 Summary(pt_BR):	Front-ends para o SANE
 Name:		sane-frontends
 Version:	1.0.10
-Release:	0.%{pre}.1
+Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	ftp://ftp.mostang.com/pub/sane/%{name}-%{version}-%{pre}.tar.gz
+Source0:	ftp://ftp.mostang.com/pub/sane/%{name}-%{version}.tar.gz
 URL:		http://www.mostang.com/sane/
 BuildRequires:	sane-backends-devel
 %{!?_without_gimp:BuildRequires:	gimp-devel}
@@ -16,6 +15,9 @@ BuildRequires:	autoconf
 Obsoletes:	xscanimage
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%if 0%{!?_without_gimp:1}
+%define		gimpplugindir	%(gimp-config --gimpplugindir)
+%endif
 
 %description
 SANE (Scanner Access Now Easy) is a sane and simple interface to both
@@ -45,7 +47,7 @@ rede por default; se você quiser habilitar essa característica,
 verifique o manpage do saned(1).
 
 %prep
-%setup -q -n %{name}-%{version}-%{pre}
+%setup -q
 
 %build
 %{__autoconf}
@@ -55,11 +57,13 @@ verifique o manpage do saned(1).
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_libdir}/gimp/%{gimp_ver}/plug-ins
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-ln -sf %{_bindir}/xscanimage $RPM_BUILD_ROOT%{_libdir}/gimp/%{gimp_ver}/plug-ins
+%if 0%{!?_without_gimp:1}
+install -d $RPM_BUILD_ROOT%{gimpplugindir}/plug-ins
+ln -sf %{_bindir}/xscanimage $RPM_BUILD_ROOT%{gimpplugindir}/plug-ins
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -68,6 +72,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS NEWS PROBLEMS TODO Changelog
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/gimp/%{gimp_ver}/plug-ins/*
+%{!?_without_gimp:%attr(755,root,root) %{gimpplugindir}/plug-ins/*}
 %{_mandir}/man1/*
 %{_datadir}/*
