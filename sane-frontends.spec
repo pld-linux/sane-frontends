@@ -18,8 +18,8 @@ BuildRequires:	gimp-devel
 BuildRequires:	gtk+-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define	_prefix	/usr/X11R6
-%define _mandir	/usr/X11R6/man
+%define		_prefix		/usr/X11R6
+%define		_mandir		%{_prefix}/man
 
 %description
 SANE (Scanner Access Now Easy) is a sane and simple interface to both
