@@ -21,10 +21,10 @@ BuildRequires:	autoconf
 %if %{with gtk1}
 BuildRequires:	gtk+-devel
 %{?with_gimp:BuildRequires:	gimp-devel < 1.3.0}
-%{?with_gimp:BuildRequires:	gimp-devel >= 1.2.0}
+%{?with_gimp:BuildRequires:	gimp-devel >= 1:1.2.0}
 %else
 BuildRequires:	gtk+2-devel
-%{?with_gimp:BuildRequires:	gimp-devel >= 1.3.15}
+%{?with_gimp:BuildRequires:	gimp-devel >= 1:1.3.15}
 %endif
 BuildRequires:	sane-backends-devel >= 1.0.11
 %requires_eq	sane-backends
