@@ -16,7 +16,7 @@ Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.mostang.com/pub/sane/%{name}-%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	59b143e12c926726db16983d288aa1a1
 Patch0:		%{name}-gimp1.3.15.patch
-URL:		http://www.mostang.com/sane/
+URL:		http://www.sane-project.org/
 BuildRequires:	autoconf
 %if 0%{?_with_gtk1:1}
 BuildRequires:	gtk+-devel
