@@ -31,9 +31,9 @@ This packages contains frontends for SANE: xscanimage and xcam.
 SANE - acceso a scanners en red y locales.
 
 %description -l pl
-SANE (Scanner Access Now Easy) jest rozs±dnym i prostym interfejsem
-do skanerów, zarówno lokalnych jak i sieciowych, oraz innych urz±dzeñ
-do pozyskiwania obrazów, jak cyfrowe aparaty i kamery.
+SANE (Scanner Access Now Easy) jest rozs±dnym i prostym interfejsem do
+skanerów, zarówno lokalnych jak i sieciowych, oraz innych urz±dzeñ do
+pozyskiwania obrazów, jak cyfrowe aparaty i kamery.
 
 Ten pakiet zawiera frontendy dla SANE: xscanimage i xcam.
 
