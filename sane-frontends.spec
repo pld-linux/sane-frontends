@@ -4,7 +4,7 @@ Summary(pl):	SANE - Prosta obs³uga skanerów lokalnych i sieciowych
 Summary(pt_BR):	Front-ends para o SANE
 Name:		sane-frontends
 Version:	1.0.6
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications/Graphics
 Group(de):	X11/Applikationen/Grafik
@@ -17,6 +17,7 @@ URL:		http://www.mostang.com/sane/
 BuildRequires:	sane-backends-devel
 BuildRequires:	gimp-devel
 BuildRequires:	autoconf
+Obsoletes:	xscanimage
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -33,7 +34,7 @@ This packages contains frontends for SANE: xscanimage and xcam.
 SANE - acceso a scanners en red y locales.
 
 %description -l pl
-SANE (Scanner Access Now Easy) jest rozs±dnym i prostym insterfejsem
+SANE (Scanner Access Now Easy) jest rozs±dnym i prostym interfejsem
 do skanerów, zarówno lokalnych jak i sieciowych, oraz innych urz±dzeñ
 do pozyskiwania obrazów, jak cyfrowe aparaty i kamery.
 
