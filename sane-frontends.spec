@@ -10,6 +10,7 @@ Release:	2
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.mostang.com/pub/sane/%{name}-%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	59b143e12c926726db16983d288aa1a1
 URL:		http://www.mostang.com/sane/
 BuildRequires:	autoconf
 %if 0%{?_with_gtk12:1}
