@@ -13,11 +13,11 @@ Source0:	ftp://ftp.mostang.com/pub/sane/%{name}-%{version}/%{name}-%{version}.ta
 URL:		http://www.mostang.com/sane/
 BuildRequires:	autoconf
 %if 0%{?_with_gtk12:1}
-BuildRequires:	gtk-devel
+BuildRequires:	gtk+-devel
 %{!?_without_gimp:BuildRequires:	gimp-devel < 1.3.0}
 %{!?_without_gimp:BuildRequires:	gimp-devel >= 1.2.0}
 %else
-BuildRequires:	gtk2-devel
+BuildRequires:	gtk+2-devel
 %{!?_without_gimp:BuildRequires:	gimp-devel >= 1.3.14}
 %endif
 BuildRequires:	sane-backends-devel >= 1.0.11
