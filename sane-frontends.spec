@@ -2,7 +2,7 @@
 Summary:	SANE - Easy local and networked scanner access
 Summary(pl):	SANE - Prosta obs³uga skanerów lokalnych i sieciowych
 Name:		sane-frontends
-Version:	1.0.5
+Version:	1.0.6
 Release:	1
 Group:		X11/Applications/Graphics
 Group(de):	X11/Applikationen/Grafik
