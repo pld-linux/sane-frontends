@@ -1,6 +1,8 @@
-# Conditional builds:
+#
+# Conditional build:
 # _without_gimp  - don't build GIMP plugin
 # _with_gtk12    - use GTK 1.2.x for GUI (for eg. for GIMP 1.2)
+#
 Summary:	SANE - Easy local and networked scanner access
 Summary(pl):	SANE - Prosta obs³uga skanerów lokalnych i sieciowych
 Summary(pt_BR):	Front-ends para o SANE
@@ -11,6 +13,7 @@ License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.mostang.com/pub/sane/%{name}-%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	59b143e12c926726db16983d288aa1a1
+Patch0:		%{name}-gimp1.3.15.patch
 URL:		http://www.mostang.com/sane/
 BuildRequires:	autoconf
 %if 0%{?_with_gtk12:1}
@@ -59,6 +62,7 @@ verifique o manpage do saned(1).
 
 %prep
 %setup -q
+%patch -p1
 
 %build
 %{__autoconf}
