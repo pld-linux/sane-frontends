@@ -31,7 +31,7 @@ Obsoletes:	xscanimage
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %if %{with gimp}
-%define		gimpplugindir	%(gimptool --gimpplugindir)
+%define		gimpplugindir	%(gimptool --gimpplugindir 2>/dev/null || echo ERROR)
 %endif
 
 %description
