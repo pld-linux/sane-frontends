@@ -9,10 +9,10 @@ License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.mostang.com/pub/sane/sane-%{version}/%{name}-%{version}.tar.gz
 URL:		http://www.mostang.com/sane/
-BuildRequires:	sane-backends-devel = %{version}
-%{!?_without_gimp:BuildRequires:	gimp-devel}
 BuildRequires:	autoconf
-Requires:	sane-backends = %{version}
+%{!?_without_gimp:BuildRequires:	gimp-devel}
+BuildRequires:	sane-backends-devel >= 1.0.11
+%requires_eq	sane-backends
 Obsoletes:	xscanimage
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
