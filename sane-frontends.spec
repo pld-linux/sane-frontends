@@ -10,7 +10,7 @@ Summary(pl):	SANE - prosta obs³uga skanerów lokalnych i sieciowych
 Summary(pt_BR):	Front-ends para o SANE
 Name:		sane-frontends
 Version:	1.0.11
-Release:	7
+Release:	8
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.mostang.com/pub/sane/%{name}-%{version}/%{name}-%{version}.tar.gz
