@@ -1,4 +1,4 @@
-%define	gimp_ver	1.1
+%define	gimp_ver	1.2
 Summary:	SANE --- Easy local and networked scanner access
 Summary(pl):	SANE --- Prosta obs³uga skanerów lokalnych i sieciowych
 Name:		sane-frontends
