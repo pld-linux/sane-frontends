@@ -10,7 +10,7 @@ Summary(pl):	SANE - prosta obs³uga skanerów lokalnych i sieciowych
 Summary(pt_BR):	Front-ends para o SANE
 Name:		sane-frontends
 Version:	1.0.11
-Release:	6
+Release:	7
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.mostang.com/pub/sane/%{name}-%{version}/%{name}-%{version}.tar.gz
@@ -71,7 +71,7 @@ cp -f /usr/share/automake/config.sub .
 %{__autoconf}
 %configure \
 	%{!?with_gimp:--disable-gimp} \
-	%{?with_gimp:%{!?with_gtk1:--enable-gimp13}} \
+	%{?with_gimp:%{!?with_gtk1:--enable-gimp13 GIMPTOOL=%_bindir/gimptool}} \
 	%{?with_gtk1:--disable-gtk2}
 %{__make}
 
