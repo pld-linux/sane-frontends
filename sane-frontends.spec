@@ -7,7 +7,7 @@ Version:	1.0.10
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	ftp://ftp.mostang.com/pub/sane/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.mostang.com/pub/sane/sane-%{version}/%{name}-%{version}.tar.gz
 URL:		http://www.mostang.com/sane/
 BuildRequires:	sane-backends-devel
 %{!?_without_gimp:BuildRequires:	gimp-devel}
