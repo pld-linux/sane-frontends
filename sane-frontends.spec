@@ -1,7 +1,7 @@
 #
 # Conditional build:
 %bcond_without	gimp	# don't build GIMP plugin
-%bcond_with	gtk1	# use GTK 1.2.x for GUI (for eg. for GIMP 1.2)
+%bcond_with	gtk1	# use GTK+ 1.2.x for GUI (for eg. for GIMP 1.2)
 #
 Summary:	SANE - easy local and networked scanner access
 Summary(es):	SANE - acceso a scanners en red y locales
