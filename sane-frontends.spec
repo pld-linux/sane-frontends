@@ -1,20 +1,20 @@
 %define	gimp_ver	1.2
-Summary:	SANE --- Easy local and networked scanner access
-Summary(pl):	SANE --- Prosta obs³uga skanerów lokalnych i sieciowych
+Summary:	SANE - Easy local and networked scanner access
+Summary(pl):	SANE - Prosta obs³uga skanerów lokalnych i sieciowych
 Name:		sane-frontends
 Version:	1.0.5
 Release:	1
-Group:		Libraries
-Group(de):	Libraries
-Group(es):	Bibliotecas
-Group(fr):	Librairies
-Group(pl):	Biblioteki
+Group:		X11/Applications/Graphics
+Group(de):	X11/Applikationen/Grafik
+Group(pl):	X11/Aplikacje/Grafika
+Group(pt):	X11/Aplicações/Gráficos
 License:	GPL
 Source0:	ftp://ftp.mostang.com/pub/sane/sane-%{version}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.mostang.com/sane/
 BuildRequires:	sane-backends-devel
 BuildRequires:	gimp-devel
+BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
