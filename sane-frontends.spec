@@ -5,6 +5,9 @@ Name:		sane-frontends
 Version:	1.0.4
 Release:	1
 Group:		Libraries
+Group(de):	Libraries
+Group(es):	Bibliotecas
+Group(fr):	Librairies
 Group(pl):	Biblioteki
 License:	GPL
 Source0:	ftp://ftp.mostang.com/pub/sane/%{name}-%{version}.tar.gz
@@ -59,9 +62,10 @@ autoconf
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_libdir}/gimp/%{gimp_ver}/plug-ins
+
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_libdir}/gimp/%{gimp_ver}/plug-ins
 ln -sf %{_bindir}/xscanimage $RPM_BUILD_ROOT%{_libdir}/gimp/%{gimp_ver}/plug-ins
 
 gzip -9nf AUTHORS NEWS PROBLEMS TODO Changelog
