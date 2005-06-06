@@ -17,6 +17,7 @@ Source0:	ftp://ftp.sane-project.org/pub/sane/%{name}-%{version}/%{name}-%{versio
 # Source0-md5:	2930626e627df49b45192a722cedc8a6
 URL:		http://www.sane-project.org/
 BuildRequires:	autoconf
+BuildRequires:	automake
 %if %{with gtk1}
 BuildRequires:	gtk+-devel >= 1.2.0
 %{?with_gimp:BuildRequires:	gimp-devel < 1.3.0}
