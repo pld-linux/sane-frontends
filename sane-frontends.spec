@@ -4,10 +4,10 @@
 %bcond_with	gtk1	# use GTK+ 1.2.x for GUI (for eg. for GIMP 1.2)
 #
 Summary:	SANE - easy local and networked scanner access
-Summary(es):	SANE - acceso a scanners en red y locales
-Summary(ko):	½ºÄ³³Ê¸¦ ´Ù·ç´Â ¼ÒÇÁÆ®¿ş¾î
-Summary(pl):	SANE - prosta obs³uga skanerów lokalnych i sieciowych
-Summary(pt_BR):	Front-ends para o SANE
+Summary(es.UTF-8):   SANE - acceso a scanners en red y locales
+Summary(ko.UTF-8):   ìŠ¤ìºë„ˆë¥¼ ë‹¤ë£¨ëŠ” ì†Œí”„íŠ¸ì›¨ì–´
+Summary(pl.UTF-8):   SANE - prosta obsÅ‚uga skanerÃ³w lokalnych i sieciowych
+Summary(pt_BR.UTF-8):   Front-ends para o SANE
 Name:		sane-frontends
 Version:	1.0.14
 Release:	1
@@ -42,24 +42,24 @@ digital still and video cameras.
 
 This packages contains frontends for SANE: xscanimage and xcam.
 
-%description -l es
+%description -l es.UTF-8
 SANE - acceso a scanners en red y locales.
 
-%description -l pl
-SANE (Scanner Access Now Easy) jest rozs±dnym i prostym interfejsem do
-skanerów, zarówno lokalnych jak i sieciowych, oraz innych urz±dzeñ do
-pozyskiwania obrazów, jak cyfrowe aparaty i kamery.
+%description -l pl.UTF-8
+SANE (Scanner Access Now Easy) jest rozsÄ…dnym i prostym interfejsem do
+skanerÃ³w, zarÃ³wno lokalnych jak i sieciowych, oraz innych urzÄ…dzeÅ„ do
+pozyskiwania obrazÃ³w, jak cyfrowe aparaty i kamery.
 
 Ten pakiet zawiera frontendy dla SANE: xscanimage i xcam.
 
-%description -l pt_BR
-SANE (Scanner Access Now Easy) é uma interface para scanners e outros
-dispositivos locais e remotos de aquisição de imagens tais como
-câmeras digitais. SANE atualmente suporta um grande numero de
+%description -l pt_BR.UTF-8
+SANE (Scanner Access Now Easy) Ã© uma interface para scanners e outros
+dispositivos locais e remotos de aquisiÃ§Ã£o de imagens tais como
+cÃ¢meras digitais. SANE atualmente suporta um grande numero de
 scanners, incluindo modelos da Agfa SnapScan, Apple, Artec, Canon,
 CoolScan, Epson, HP, Microtek, Mustek, Nikon, Siemens, Tamarack, UMAX,
-Connectix QuickCams e outros. Este pacote não habilita scanning por
-rede por default; se você quiser habilitar essa característica,
+Connectix QuickCams e outros. Este pacote nÃ£o habilita scanning por
+rede por default; se vocÃª quiser habilitar essa caracterÃ­stica,
 verifique o manpage do saned(1).
 
 %prep
