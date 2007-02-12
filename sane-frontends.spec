@@ -4,10 +4,10 @@
 %bcond_with	gtk1	# use GTK+ 1.2.x for GUI (for eg. for GIMP 1.2)
 #
 Summary:	SANE - easy local and networked scanner access
-Summary(es.UTF-8):   SANE - acceso a scanners en red y locales
-Summary(ko.UTF-8):   스캐너를 다루는 소프트웨어
-Summary(pl.UTF-8):   SANE - prosta obsługa skanerów lokalnych i sieciowych
-Summary(pt_BR.UTF-8):   Front-ends para o SANE
+Summary(es.UTF-8):	SANE - acceso a scanners en red y locales
+Summary(ko.UTF-8):	스캐너를 다루는 소프트웨어
+Summary(pl.UTF-8):	SANE - prosta obsługa skanerów lokalnych i sieciowych
+Summary(pt_BR.UTF-8):	Front-ends para o SANE
 Name:		sane-frontends
 Version:	1.0.14
 Release:	1
