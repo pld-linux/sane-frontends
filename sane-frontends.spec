@@ -15,6 +15,7 @@ License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.sane-project.org/pub/sane/%{name}-%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	c63bf7b0bb5f530cf3c08715db721cd3
+Patch0:		sane-backends-1_20.patch
 URL:		http://www.sane-project.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -64,6 +65,7 @@ verifique o manpage do saned(1).
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 cp -f /usr/share/automake/config.sub .

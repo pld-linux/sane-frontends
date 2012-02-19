@@ -1,0 +1,11 @@
+--- sane-frontends-1.0.14/src/gtkglue.c.orig	2011-11-22 21:19:21.387799425 +0100
++++ sane-frontends-1.0.14/src/gtkglue.c	2011-11-22 21:19:54.523629485 +0100
+@@ -1476,7 +1476,7 @@ gsg_set_sensitivity (GSGDialog * dialog,
+ 	  || opt->type == SANE_TYPE_GROUP || !dialog->element[i].widget)
+ 	continue;
+ 
+-      if (!(opt->cap & SANE_CAP_ALWAYS_SETTABLE))
++      if (!(opt->cap))
+ 	gtk_widget_set_sensitive (dialog->element[i].widget, sensitive);
+     }
+ }
