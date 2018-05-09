@@ -11,12 +11,13 @@ Summary(pt_BR.UTF-8):	Front-ends para o SANE
 Name:		sane-frontends
 Version:	1.0.14
 Release:	1
-License:	GPL
+License:	GPL v2+
 Group:		X11/Applications/Graphics
-Source0:	ftp://ftp.sane-project.org/pub/sane/%{name}-%{version}/%{name}-%{version}.tar.gz
+#Source0Download: https://alioth.debian.org/frs/?group_id=30186
+Source0:	https://alioth.debian.org/frs/download.php/file/1140/%{name}-%{version}.tar.gz
 # Source0-md5:	c63bf7b0bb5f530cf3c08715db721cd3
 Patch0:		sane-backends-1_20.patch
-URL:		http://www.sane-project.org/
+URL:		http://sane-project.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 %if %{with gtk1}
@@ -93,7 +94,11 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS Changelog NEWS PROBLEMS README
-%attr(755,root,root) %{_bindir}/*
-%{?with_gimp:%attr(755,root,root) %{gimpplugindir}/plug-ins/*}
-%{_mandir}/man1/*
+%attr(755,root,root) %{_bindir}/scanadf
+%attr(755,root,root) %{_bindir}/xcam
+%attr(755,root,root) %{_bindir}/xscanimage
+%{?with_gimp:%attr(755,root,root) %{gimpplugindir}/plug-ins/xscanimage}
+%{_mandir}/man1/scanadf.1*
+%{_mandir}/man1/xcam.1*
+%{_mandir}/man1/xscanimage.1*
 %{_datadir}/sane
