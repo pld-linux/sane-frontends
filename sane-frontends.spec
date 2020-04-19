@@ -13,8 +13,8 @@ Version:	1.0.14
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Graphics
-#Source0Download: https://alioth.debian.org/frs/?group_id=30186
-Source0:	https://alioth.debian.org/frs/download.php/file/1140/%{name}-%{version}.tar.gz
+#Source0Download: https://gitlab.com/sane-project/frontends/tags
+Source0:	https://gitlab.com/sane-project/frontends/uploads/14e5c5a9205b10bd3df04501852eab28/%{name}-%{version}.tar.gz
 # Source0-md5:	c63bf7b0bb5f530cf3c08715db721cd3
 Patch0:		sane-backends-1_20.patch
 URL:		http://sane-project.org/
