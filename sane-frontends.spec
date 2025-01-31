@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	gimp	# don't build GIMP plugin
+%bcond_with	gimp	# don't build GIMP plugin
 %bcond_with	gtk1	# use GTK+ 1.2.x for GUI (for eg. for GIMP 1.2)
 #
 Summary:	SANE - easy local and networked scanner access
@@ -10,23 +10,25 @@ Summary(pl.UTF-8):	SANE - prosta obsługa skanerów lokalnych i sieciowych
 Summary(pt_BR.UTF-8):	Front-ends para o SANE
 Name:		sane-frontends
 Version:	1.0.14
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications/Graphics
 #Source0Download: https://gitlab.com/sane-project/frontends/tags
 Source0:	https://gitlab.com/sane-project/frontends/uploads/14e5c5a9205b10bd3df04501852eab28/%{name}-%{version}.tar.gz
 # Source0-md5:	c63bf7b0bb5f530cf3c08715db721cd3
 Patch0:		sane-backends-1_20.patch
+Patch1:		%{name}-c99.patch
+Patch2:		%{name}-configure-c99.patch
 URL:		http://sane-project.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 %if %{with gtk1}
-BuildRequires:	gtk+-devel >= 1.2.0
 %{?with_gimp:BuildRequires:	gimp-devel < 1.3.0}
 %{?with_gimp:BuildRequires:	gimp-devel >= 1:1.2.0}
+BuildRequires:	gtk+-devel >= 1.2.0
 %else
-BuildRequires:	gtk+2-devel >= 1:2.0.0
 %{?with_gimp:BuildRequires:	gimp-devel >= 1:1.3.23}
+BuildRequires:	gtk+2-devel >= 1:2.0.0
 %endif
 BuildRequires:	sane-backends-devel >= 1.0.14
 Requires:	sane-backends >= 1.0.14
@@ -66,7 +68,9 @@ verifique o manpage do saned(1).
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P 0 -p1
+%patch -P 1 -p1
+%patch -P 2 -p1
 
 %build
 cp -f /usr/share/automake/config.sub .

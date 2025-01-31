@@ -1,0 +1,58 @@
+Avoid implicit declaration of isfdtype, for C99 compatibility.
+
+Partially fixed upstream via:
+
+commit 7ebdf2cd6232aa22c78fd9b59951a3e9ee43a715
+Author: Ralph Little <skelband@gmail.com>
+Date:   Tue Apr 6 09:27:09 2021 -0700
+
+    scanadf: fixes for various compilation warnings
+
+Rest submitted upstream:
+
+  <https://gitlab.com/sane-project/frontends/-/merge_requests/9>
+
+diff --git a/configure b/configure
+index 663bf8b..804634b 100755
+--- a/configure
++++ b/configure
+@@ -4507,7 +4507,7 @@ fi
+ 
+ 
+ 
+-for ac_header in os2.h fcntl.h unistd.h libc.h sys/time.h sys/types.h
++for ac_header in os2.h fcntl.h unistd.h libc.h sys/time.h sys/types.h sys/socket.h
+ do
+ as_ac_Header=`echo "ac_cv_header_$ac_header" | $as_tr_sh`
+ if eval "test \"\${$as_ac_Header+set}\" = set"; then
+diff --git a/configure.in b/configure.in
+index ef43528..06dd75d 100644
+--- a/configure.in
++++ b/configure.in
+@@ -75,7 +75,8 @@ esac
+ 
+ dnl Checks for header files.
+ AC_HEADER_STDC
+-AC_CHECK_HEADERS(os2.h fcntl.h unistd.h libc.h sys/time.h sys/types.h)
++AC_CHECK_HEADERS(os2.h fcntl.h unistd.h libc.h sys/time.h sys/types.h
++		 sys/socket.h)
+ 
+ dnl Checks for typedefs, structures, and compiler characteristics.
+ AC_C_CONST
+diff --git a/include/sane/config.h.in b/include/sane/config.h.in
+index baf35be..b8d901d 100644
+--- a/include/sane/config.h.in
++++ b/include/sane/config.h.in
+@@ -108,6 +108,9 @@
+ /* Define to 1 if you have the `strtod' function. */
+ #undef HAVE_STRTOD
+ 
++/* Define to 1 if you have the <sys/socket.h> header file. */
++#undef HAVE_SYS_SOCKET_H
++
+ /* Define to 1 if you have the <sys/stat.h> header file. */
+ #undef HAVE_SYS_STAT_H
+ 
+-- 
+2.39.0
+
