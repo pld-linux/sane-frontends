@@ -32,7 +32,7 @@ BuildRequires:	gtk+2-devel >= 1:2.0.0
 %endif
 BuildRequires:	sane-backends-devel >= 1.0.14
 Requires:	sane-backends >= 1.0.14
-Obsoletes:	xscanimage
+Obsoletes:	xscanimage < 1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %if %{with gimp}
